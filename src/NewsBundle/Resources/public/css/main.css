@@ -1,0 +1,67 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+ {
+     color: #000000;
+     font-family: 'Roboto Condensed', sans-serif;
+     font-size: 18px;
+ }
+
+.container
+{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+
+}
+
+#left_size
+{
+    max-width: 900px;
+    margin-left: 100px;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+
+}
+
+#nick
+{
+    color: #0000F0;
+    font-size: 12px;
+}
+
+#title {
+    font-size: 18px;
+}
+
+
+#news
+{
+    font-size: 15px;
+    text-align: left;
+}
+#deleter
+{
+    color: red;
+    font-size: 12px;
+}
+#editor
+{
+    color: darkgreen;
+    font-size: 12px;
+}
+
+#ban
+{
+    color: green;
+    font-size: 12px;
+}

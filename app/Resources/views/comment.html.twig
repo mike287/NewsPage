@@ -1,0 +1,20 @@
+{% extends 'default/baseTwig.html.twig' %}
+
+
+{% block comment %}
+    TWÓJ KOMENTARZ
+    <p id = "title"style="text-align: left">{{ rowsComment.title }}</p>
+    <p id = "news">{{ rowsComment.news }}</p>
+    <p id = "nick" style="text-align: right">author: {{ rowsComment.nick }}</p>
+
+        <form method="post" action="{{ path ('pushComment', {'id': rowsComment.id}) }}">
+            <div>
+                <input style="width: 650px" type="text" name="nickCom" placeholder="nick" required>
+            </div>
+            <textarea style="width: 650px; height: 100px "  name="comment" placeholder="comment" required ></textarea>
+            <div>
+                <input type="submit">
+            </div>
+        </form>
+
+{% endblock %}

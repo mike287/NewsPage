@@ -1,0 +1,38 @@
+{% extends 'default/baseTwig.html.twig' %}
+
+{% block commentsPack %}
+
+    <p id = "title"style="text-align: left">{{ rowsComment.title }}</p>
+    <p id = "news">{{ rowsComment.news }}</p>
+    <p id = "nick" style="text-align: right">author: {{ rowsComment.nick }}</p>
+    <p>KOMENTARZE</p>
+    {{ count }}
+    <hr>
+
+    {% if rowsCom is defined %}
+
+    <table>
+
+        {% for row in rowsCom %}
+
+
+            {#<p id = "news">{{ row.id }}</p>#}
+            <p id = "news">{{ row.comment }}</p>
+            <p id = "nick" style="text-align: right">user: {{ row.nick }}</p>
+
+
+            {% if delete is defined %}
+                <p id = "deleter" style="text-align: right">
+                    <a id ="deleter" href="{{ path('deleteComment', {'id': row.id,'newsPage': newsPage  }) }}">delete Comment</a>
+                </p>
+                <p id = "deleter" style="text-align: right">
+                    <a id ="ban" href="{{ path('banComment', {'id': row.id,'newsPage': newsPage  }) }}">ban Comment</a>
+                </p>
+            {% endif %}
+
+            <hr>
+        {% endfor %}
+
+    </table>
+    {% endif %}
+{% endblock %}

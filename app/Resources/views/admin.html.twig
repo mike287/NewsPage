@@ -1,0 +1,25 @@
+{% extends 'default/baseTwig.html.twig' %}
+
+{% block body %}
+        {{ name }}
+{% endblock %}
+
+{% block adminOption %}
+<form method="post" action="{{ path('createNews') }}">
+        <div>
+                <input type="text" style="width: 650px"; id="nick" name="nick" placeholder="nick"  required>
+        </div>
+        <div>
+                <input style="width: 650px"; type="text" id="title" name="title" placeholder="title" required>
+        </div>
+        <div>
+                <textarea style="width: 650px; height: 100px" id="news" name="news" placeholder="news" required ></textarea>
+        </div>
+        <div>
+                <input type="submit">
+        </div>
+
+</form>
+{% endblock %}
+
+

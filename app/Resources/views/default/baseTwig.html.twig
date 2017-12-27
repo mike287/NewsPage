@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="Stylesheet" type="text/css" href="{{ asset('bundles/news/css/main.css')}}" />
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<div class="container">
+    <p><a href="{{ path ('homepage') }}"> <h1>PAGE of NEWS</h1></a></p>
+
+    {% if name is defined %}
+{% block body %}{% endblock %}
+    {% endif %}
+
+</div>
+
+<div>
+    <a href="{{ path('admin') }}" id="left_size">Admin</a>
+</div>
+{#<div>#}
+    {#<a href="baseTwig.html.twig" id="left_size">User</a>#}
+{#</div>#}
+
+<div class="container">
+{% if admin is defined %}
+    FORMULARZ
+    {% block adminOption %}{% endblock %}
+{% endif %}
+
+    {% if rows is defined %}
+            {% for rows in rows %}
+                    {#<td>{{ rows.id }}</td>#}
+                    <p id = "title"style="text-align: left">{{ rows.title }}</p>
+                    <p id = "news">{{ rows.news }}</p>
+                    <p id = "nick" style="text-align: right">author: {{ rows.nick }}</p>
+                <p style="text-align: right">
+                    <a href="{{ path('addComment', {'id': rows.id}) }}" id = "editor">addComment</a>
+                </p>
+
+                {% if delete is not defined %}
+                <p id = "editor" style="text-align: right">
+                    <a href="{{ path('showerComment', {'id': rows.id}) }}">showComments
+
+                        {{ rows.countOfComments }}
+                    </a>
+                </p>
+                    {% endif %}
+
+    {% if delete is defined %}
+        <p id = "deleter" style="text-align: right">
+            <a href="{{ path('deleteNews', {'id': rows.id}) }}" id="deleter">delete News</a>
+        </p>
+        <p id = "editor" style="text-align: right">
+            <a href="{{ path('showerCommentAdmin', {'id': rows.id}) }}">show Comments {{ rows.countOfComments }}</a>
+        </p>
+
+
+    {% endif %}
+
+
+
+                <hr>
+
+            {% endfor %}
+    {% endif %}
+
+
+    {% if rowsComment is defined %}
+    {% block comment %}{% endblock %}
+    {% endif %}
+
+    {% if rowsCom is defined %}
+        {% block commentsPack %}{% endblock %}
+    {% endif %}
+
+        </table>
+
+
+</div>
+
+
+
+
+
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>
